@@ -4,7 +4,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 </p>
 
-## About my laravel crud-0821 
+## About my laravel crud-0821 app 
 
 There is simple CRUD app built in laravel 8. There are users, but mainly categories and items. <br/>
 You will find respective Models, Controllers, views.  <br/>

@@ -7,7 +7,7 @@
 ## About my laravel crud-0821
 
 There is simple CRUD app built in laravel 8. There are users, but mainly categories and items. <br/>
-You will find respective Models, Controllers, views. <br/>
+You will find respective Models, Controllers, views.  <br/>
 
 ## Building the app on your local machine
 There are several options to build the app on your local machine. <br/>

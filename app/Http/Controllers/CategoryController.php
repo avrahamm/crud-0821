@@ -82,7 +82,7 @@ class CategoryController extends Controller
             'name' => $request->name
         ];
         $category->update($updateData);
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.show',compact('category'));
     }
 
     /**

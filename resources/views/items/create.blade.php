@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-lg-12">
 
-        <h1 class="my-4">New Category</h1>
+        <h1 class="my-4">New Item</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">

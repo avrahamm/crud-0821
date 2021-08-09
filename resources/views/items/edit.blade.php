@@ -3,25 +3,15 @@
 @section('content')
     <div class="col-lg-12">
 
-        <h1 class="my-4">Edit Product</h1>
+        <h1 class="my-4">Edit Item</h1>
 
-        <form action="{{ route('items.update', $product->id) }}" method="POST"
-              enctype="multipart/form-data"
-        >
+        <form action="{{ route('items.update', $item->id) }}" method="POST" >
             @method('PUT')
             @csrf
             <label for="name">Name</label>
             <br />
             <input id="name" type="text" name="name"
-                   value="{{  $product->name }}"
-                   class="form-control"
-            >
-
-            <br />
-            <label for="price">Price</label>
-            <br />
-            <input id="price" type="text" name="price"
-                   value="{{ $product->price }}"
+                   value="{{  $item->name }}"
                    class="form-control"
             >
 
@@ -30,18 +20,7 @@
             <br />
             <textarea id="description" name="description"
                       class="form-control" rows="3"
-            >{{ $product->description}}</textarea>
-
-            <br />
-            <label for="photo">Photo</label>
-            <br />
-            <img id="photo"
-                 src="{{ asset('/storage/'.$product->photo) }}" alt="product"
-                width="100" height="100"
-            >
-            <input id="photo" type="file" name="photo" value="{{ old('photo') }}"
-                   class="form-control"
-            >
+            >{{ $item->description}}</textarea>
 
             <br />
             <label for="categories">Categories</label>
@@ -49,7 +28,7 @@
             <select name="category_id" id="categories">
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}"
-                    @if ($category->id === $product->category_id)
+                    @if ($category->id === $item->category_id)
                         selected
                     @endif
                     >

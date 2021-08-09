@@ -5,9 +5,7 @@
 
         <h1 class="my-4">New Category</h1>
 
-        <form action="{{ route('categories.store') }}" method="POST"
-              enctype="multipart/form-data"
-        >
+        <form action="{{ route('categories.store') }}" method="POST" >
             @csrf
 
             <label for="name">Name</label>
@@ -17,17 +15,9 @@
             >
 
             <br />
-            <label for="photo">Photo</label>
-            <br />
-            <input id="photo" type="file" name="photo" value="{{ old('photo') }}"
-                   class="form-control"
-            >
-
-            <br />
             <input type="submit" class="btn btn-primary" value="Save">
             <br />
         </form>
-
 
     </div>
 @endsection

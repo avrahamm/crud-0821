@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreItemRequest;
+use App\Models\Category;
 use App\Models\Item;
-use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
@@ -25,30 +26,40 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('items.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  StoreItemRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreItemRequest $request)
     {
-        //
+        $createdData = [
+            'name' => $request->name,
+            'description' => $request->description,
+            'category_id' => $request->category_id,
+        ];
+        Item::create($createdData);
+
+        return redirect()->route('items.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Item  $item
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $item)
+    public function show($id)
     {
-        //
+        $item = Item::findOrFail($id);
+        return view('items.show', compact('item'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -58,29 +69,40 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        $categories = Category::all();
+        return view('items.edit', compact('item','categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Item  $item
+     * @param  StoreItemRequest  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Item $item)
+    public function update(StoreItemRequest $request, $id)
     {
-        //
+        $item = Item::findOrFail($id);
+        $updateData = [
+            'name' => $request->name,
+            'description' => $request->description,
+            'category_id' => $request->category_id,
+        ] ;
+        $item->update($updateData);
+
+        return redirect()->route('items.show',compact('item'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Item  $item
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Item $item)
+    public function destroy($id)
     {
-        //
+        $item = Item::findOrFail($id);
+        $item->delete();
+        return redirect()->route('items.index');
     }
 }

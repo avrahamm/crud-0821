@@ -15,8 +15,7 @@
             </div>
         @endif
 
-        <form action="{{ route('items.store') }}" method="POST"
-              enctype="multipart/form-data" >
+        <form action="{{ route('items.store') }}" method="POST" >
             @csrf
 
             <label for="name">Name</label>
@@ -26,25 +25,11 @@
             >
 
             <br />
-            <label for="price">Price</label>
-            <br />
-            <input id="price" type="text" name="price" value="{{ old('price') }}"
-                   class="form-control"
-            >
-
-            <br />
 
             <label for="description">Description</label>
             <br />
             <textarea id="description" name="description" class="form-control" rows="3"
             >{{ old('description') }}</textarea>
-
-            <br />
-            <label for="photo">Photo</label>
-            <br />
-            <input id="photo" type="file" name="photo" value="{{ old('photo') }}"
-                   class="form-control"
-            >
 
             <br />
             <label for="categories">Categories</label>

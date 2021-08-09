@@ -12,9 +12,10 @@
 
         <table class="table">
             <tr>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Description</th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col"></th>
             </tr>
             @foreach($items as $item)
                 <tr>

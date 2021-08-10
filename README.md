@@ -18,6 +18,13 @@ There are several options to build.
   XAMP option is available as well. <br/>
 
 - Migrate and seed.
+  Set .env credentials as you wish. <br/>
+  Initialize data, compile css and js <br/>
+  ```
+  php artisan migrate:fresh --seed
+  npm install & npm run dev
+```
+  
 - open http://localhost or as you built.
     There are items and categories CRUD. <br/>
     You can attach category to item. <br/>

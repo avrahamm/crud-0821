@@ -23,7 +23,7 @@ There are several options to build.
   ```
   php artisan migrate:fresh --seed
   npm install & npm run dev
-```
+  ```
   
 - open http://localhost or as you built.
     There are items and categories CRUD. <br/>
